@@ -1,0 +1,142 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Tue Jun 21 15:10:06 2022 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>cstring_slice</title>
+
+</head>
+<body>
+
+<h1 align="center">cstring_slice</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#RETURN VALUE">RETURN VALUE</a><br>
+<a href="#NOTES">NOTES</a><br>
+<a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">cstring_slice -
+slice a segment of the string</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>#include
+&quot;cstring.h&quot;</b></p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>struct
+CString cstring_slice(struct CString</b> <i>cstring</i><b>,
+int</b> <i>start</i><b>, int</b> <i>stop</i><b>);</b></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Slice a segment
+of the CString into a new CString object based off a range
+of characters in the CString. The CString returned by this
+function still contains the same contents buffer as the
+cstring parameter, so be cautious when modifying it.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Also, the
+capacity and length fields of the returned CString will be
+equal. This is because we cannot confirm that there will
+always be a NUL byte at the end of the capacity of the
+returned CString. Because of this, using a function that
+expects a NUL byte will access *outside* of the slice. In
+other words, the sliced CString will NOT necessarily have a
+NUL byte at the end of the sliced portion.</p>
+
+<p style="margin-left:11%; margin-top: 1em">This function
+will display an error to the stderr, and abort the program
+if any of following conditions are met.</p>
+
+<p style="margin-left:22%;">o cstring.contents is NULL <br>
+o cstring.length is negative <br>
+o start is negative <br>
+o stop is negative <br>
+o start is greater than stop <br>
+o start is outside of the bounds of the cstring <br>
+o stop is outside of the bounds of the cstring</p>
+
+<p style="margin-left:11%; margin-top: 1em"><i>cstring</i>
+will be the cstring to slice <i><br>
+start</i> will be the start index <i><br>
+stop</i> will be the index to stop before</p>
+
+<h2>RETURN VALUE
+<a name="RETURN VALUE"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This function
+will return a sliced cstring</p>
+
+<h2>NOTES
+<a name="NOTES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This function
+has no notes.</p>
+
+<h2>EXAMPLES
+<a name="EXAMPLES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">#include
+&quot;cstring.h&quot;</p>
+
+<p style="margin-left:11%; margin-top: 1em">int main(void)
+{ <br>
+int start = -1; <br>
+struct CString slice; <br>
+struct CString string_a = cstring_init(&quot;foo bar
+baz&quot;);</p>
+
+<p style="margin-left:11%; margin-top: 1em">// Get the
+first word of string_a <br>
+start = cstring_finds(string_a, &quot; &quot;); <br>
+slice = cstring_slice(string_a, 0, start);</p>
+
+
+<p style="margin-left:11%; margin-top: 1em">cstring_free(string_a);</p>
+
+<p style="margin-left:11%; margin-top: 1em">return 0; <br>
+}</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This function
+has no references.</p>
+<hr>
+</body>
+</html>

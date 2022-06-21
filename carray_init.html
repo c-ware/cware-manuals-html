@@ -1,0 +1,123 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Tue Jun 21 15:09:46 2022 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>CARRAY_INIT</title>
+
+</head>
+<body>
+
+<h1 align="center">CARRAY_INIT</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">carray_init -
+initialise a new array on the heap</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>#include
+&lt;stdio.h&gt; <br>
+#include &lt;stdlib.h&gt; <br>
+#include &lt;string.h&gt; <br>
+#include &lt;cware/carray/carray.h&gt;</b></p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>#define
+carray_init(</b><i>array</i><b>,</b>
+<i>namespace</i><b>);</b></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The
+<b>carray_init</b> macro initialises a new array on the
+heap. The resulting array must be released from memory at
+the end of the program. The array can also grow as more
+items are inserted into it.</p>
+
+<p style="margin-left:11%; margin-top: 1em">This function
+has no error conditions.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><i>array</i>
+will be the array variable to initialise the array into
+<i><br>
+namespace</i> will be the namespace of the array settings to
+use</p>
+
+<h2>EXAMPLES
+<a name="EXAMPLES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">/* <br>
+* This example showcases how to use the <b>carray_pop</b>
+macro. <br>
+*/</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>#include
+&lt;stdio.h&gt; <br>
+#include &lt;stdlib.h&gt; <br>
+#include &lt;string.h&gt; <br>
+#include &lt;cware/carray/carray.h&gt;</b></p>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">struct
+StringArray { <br>
+int length; <br>
+int capacity; <br>
+char **contents; <br>
+};</p>
+
+<p style="margin-left:11%; margin-top: 1em">int main(void)
+{ <br>
+struct StringArray *array = carray_init(array,
+STRING_ARRAY);</p>
+
+<p style="margin-left:11%; margin-top: 1em">/* Remember to
+release the array after! */ <br>
+carray_free(array, STRING_ARRAY);</p>
+
+<p style="margin-left:11%; margin-top: 1em">return
+EXIT_SUCCESS; <br>
+}</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>cware</b>(cware),
+<b>carray</b>(cware)</p>
+<hr>
+</body>
+</html>

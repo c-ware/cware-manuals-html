@@ -1,0 +1,131 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Tue Jun 21 15:10:12 2022 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>libpath_free_glob</title>
+
+</head>
+<body>
+
+<h1 align="center">libpath_free_glob</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#RETURN VALUE">RETURN VALUE</a><br>
+<a href="#NOTES">NOTES</a><br>
+<a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">libpath_free_glob
+- release a glob from memory</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>#include
+&quot;libpath.h&quot;</b></p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>void
+libpath_free_glob(struct LibpathFiles</b>
+<i>files</i><b>);</b></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Releases an
+array of globbed files from memory.</p>
+
+<p style="margin-left:11%; margin-top: 1em">This function
+has no error conditions.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><i>files</i>
+will be the files to release</p>
+
+<h2>RETURN VALUE
+<a name="RETURN VALUE"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This function
+has no return value.</p>
+
+<h2>NOTES
+<a name="NOTES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This function
+has no notes.</p>
+
+<h2>EXAMPLES
+<a name="EXAMPLES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">#include
+&lt;stdio.h&gt; <br>
+#include &lt;errno.h&gt; <br>
+#include &lt;stdlib.h&gt; <br>
+#include &lt;string.h&gt;</p>
+
+<p style="margin-left:11%; margin-top: 1em">#include
+&quot;libpath.h&quot;</p>
+
+<p style="margin-left:11%; margin-top: 1em">int main(void)
+{ <br>
+int index = 0; <br>
+struct LibpathFiles globbed_files =
+libpath_glob(&quot;./&quot;, &quot;*.*&quot;);</p>
+
+<p style="margin-left:11%; margin-top: 1em">// Display all
+globbed files <br>
+for(index = 0; index &lt; globbed_files.length; index++) {
+<br>
+struct LibpathFile file = globbed_files.contents[index];</p>
+
+
+<p style="margin-left:11%; margin-top: 1em">printf(&quot;Globbed
+file: &rsquo;%s&rsquo;0, file.path); <br>
+}</p>
+
+
+<p style="margin-left:11%; margin-top: 1em">libpath_free_glob(globbed_files);</p>
+
+<p style="margin-left:11%; margin-top: 1em">return 0; <br>
+}</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This function
+has no references.</p>
+<hr>
+</body>
+</html>

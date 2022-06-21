@@ -1,0 +1,92 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Tue Jun 21 15:10:09 2022 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>LIBMATCH-CURSOR</title>
+
+</head>
+<body>
+
+<h1 align="center">LIBMATCH-CURSOR</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">libmatch-cursor
+- string cursor handling</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>struct
+LibmatchCursor libmatch_cursor_init(char
+*</b><i>buffer</i><b>, int</b> <i>length</i><b>); <br>
+struct LibmatchCursor libmatch_cursor_from_stream(FILE
+*</b><i>stream</i><b>); <br>
+void libmatch_cursor_enable_pushback(struct LibmatchCursor
+*</b><i>cursor</i><b>); <br>
+void libmatch_cursor_disable_pushback(struct LibmatchCursor
+*</b><i>cursor</i><b>); <br>
+void libmatch_cursor_ungetch(struct LibmatchCursor
+*</b><i>cursor</i><b>); <br>
+void libmatch_cursor_free(struct LibmatchCursor
+*</b><i>cursor</i><b>); <br>
+int libmatch_cursor_getch(struct LibmatchCursor
+*</b><i>cursor</i><b>); <br>
+int libmatch_cursor_unwind(struct LibmatchCursor
+*</b><i>cursor</i><b>, int</b> <i>distance</i><b>);</b></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The cursor
+group contains functions which have the main purpose of
+controlling a cursor. While all <b>libmatch</b>(cware)
+functions operate <b>on</b> a cursor object, the main
+purpose of these functions is to change something about the
+cursor object directly, rather than as a doing it as a step
+in a larger whole.</p>
+
+<p style="margin-left:11%; margin-top: 1em">What follows is
+a list of each function&rsquo;s manual, and a brief
+description of the function.</p>
+
+
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>cware</b>(cware),
+<b>libmatch</b>(cware)</p>
+<hr>
+</body>
+</html>

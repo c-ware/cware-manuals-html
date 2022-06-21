@@ -1,0 +1,160 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Tue Jun 21 15:09:48 2022 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>CARRAY_INSERT</title>
+
+</head>
+<body>
+
+<h1 align="center">CARRAY_INSERT</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#EXAMPLE">EXAMPLE</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">carray_insert -
+insert a value into an array at some location</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>#include
+&lt;stdio.h&gt; <br>
+#include &lt;stdlib.h&gt; <br>
+#include &lt;string.h&gt; <br>
+#include &lt;cware/carray/carray.h&gt;</b></p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>#define
+carray_insert(</b><i>array</i><b>,</b> <i>index</i><b>,</b>
+<i>value</i><b>,</b> <i>namespace</i><b>);</b></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Inserts a value
+into an array at some location. The location must be within
+the bounds of the array. If the array is in heap mode, the
+array will be resized when the length is equal to the
+capacity. Otherwise, if the array is full, then an error
+will occur.</p>
+
+<p style="margin-left:11%; margin-top: 1em">This macro will
+print an error message to the stderr, and exit the program
+when any of the following conditions are met:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="5%"></td>
+<td width="72%">
+
+
+<p>The index is less than zero or greater than the length
+of the array</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="5%"></td>
+<td width="72%">
+
+
+<p>The array is full in stack mode</p></td></tr>
+</table>
+
+<p style="margin-left:11%; margin-top: 1em"><i>array</i>
+will be the array to insert into <i><br>
+index</i> will be the location in the array to insert into
+<i><br>
+value</i> will be the value to insert <i><br>
+namespace</i> will be the namespace of the array settings to
+use</p>
+
+<h2>EXAMPLE
+<a name="EXAMPLE"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">/* <br>
+* This example showcases how to use the <b>carray_insert</b>
+macro. <br>
+*/</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>#include
+&lt;stdio.h&gt; <br>
+#include &lt;stdlib.h&gt; <br>
+#include &lt;string.h&gt; <br>
+#include &lt;cware/carray/carray.h&gt;</b></p>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">struct
+StringArray { <br>
+int length; <br>
+int capacity; <br>
+char **contents; <br>
+};</p>
+
+<p style="margin-left:11%; margin-top: 1em">int main(void)
+{ <br>
+struct StringArray *array = carray_init(array,
+STRING_ARRAY);</p>
+
+<p style="margin-left:11%; margin-top: 1em">/* Insert some
+values */ <br>
+carray_insert(array, 0, &quot;foo&quot;, STRING_ARRAY); <br>
+carray_insert(array, 1, &quot;foo&quot;, STRING_ARRAY); <br>
+carray_insert(array, 2, &quot;foo&quot;, STRING_ARRAY);</p>
+
+<p style="margin-left:11%; margin-top: 1em">/* Release the
+array */ <br>
+carray_free(array, STRING_ARRAY);</p>
+
+<p style="margin-left:11%; margin-top: 1em">return
+EXIT_SUCCESS; <br>
+}</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>cware</b>(cware),
+<b>carray</b>(cware)</p>
+<hr>
+</body>
+</html>

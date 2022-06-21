@@ -1,0 +1,129 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Tue Jun 21 15:10:16 2022 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>strstarts</title>
+
+</head>
+<body>
+
+<h1 align="center">strstarts</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#RETURN VALUE">RETURN VALUE</a><br>
+<a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#CONFORMING TO">CONFORMING TO</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">strstarts -
+determine if a string is prefixed with a sub-string.</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>#include
+&lt;cware/libstr/libstr.h&gt;</b></p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>int
+strstarts(const char *</b><i>string</i><b>, const char
+*</b><i>start</i><b>);</b></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The
+<b>strstarts</b> function will determine if a string is
+prefixed with a sub-string. Or, in other words, if a string
+starts with another string.</p>
+
+<p style="margin-left:11%; margin-top: 1em">If
+<i>string</i> or <i>start</i> are <b>NULL</b>, then the
+program exits with an error message printed to the
+stderr.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><i>string</i>
+will be the string to check the start of <i><br>
+start</i> will be the sub-string to search for</p>
+
+<h2>RETURN VALUE
+<a name="RETURN VALUE"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This function
+returns 1 if the string is prefixed with the sub-string, and
+0 if the string is not prefixed with the substring.</p>
+
+<h2>EXAMPLES
+<a name="EXAMPLES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">/* <br>
+* This example showcases how to use the <b>strstarts</b>
+function. <br>
+*/</p>
+
+<p style="margin-left:11%; margin-top: 1em">#include
+&lt;stdio.h&gt; <br>
+#include &lt;stdlib.h&gt; <br>
+#include &lt;cware/libstr/libstr,h&gt;</p>
+
+<p style="margin-left:11%; margin-top: 1em">int main(void)
+{ <br>
+printf(&quot;&rsquo;foo&rsquo; starts with &rsquo;f&rsquo;:
+%i\n&quot;, strstarts(&quot;foo&quot;, &quot;f&quot;)); <br>
+printf(&quot;&rsquo;foo&rsquo; starts with &rsquo;fo&rsquo;:
+%i\n&quot;, strstarts(&quot;foo&quot;, &quot;fo&quot;));
+<br>
+printf(&quot;&rsquo;bar&rsquo; starts with &rsquo;fo&rsquo;:
+%i\n&quot;, strstarts(&quot;foo&quot;, &quot;fo&quot;));</p>
+
+<p style="margin-left:11%; margin-top: 1em">return
+EXIT_SUCCESS; <br>
+}</p>
+
+<h2>CONFORMING TO
+<a name="CONFORMING TO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This function
+conforms to C89.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>cware</b>(cware),
+<b>libstr</b>(cware)</p>
+<hr>
+</body>
+</html>

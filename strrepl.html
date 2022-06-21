@@ -1,0 +1,147 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Tue Jun 21 15:10:15 2022 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>strcount</title>
+
+</head>
+<body>
+
+<h1 align="center">strcount</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#RETURN VALUE">RETURN VALUE</a><br>
+<a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#CONFORMING TO">CONFORMING TO</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">strrepl -
+in-place string find and replace</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>#include
+&lt;cware/libstr/libstr.h&gt;</b></p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>int
+strrepl(char *</b><i>string</i><b>, const char
+*</b><i>find</i><b>, const char *</b><i>replace</i><b>,
+size_t</b> <i>size</i><b>);</b></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The
+<b>strrepl</b> function replaces all occurrences of
+<i>find</i> in <i>string</i> with <i>replace</i>, in-place.
+This means that the function does not allocate any extra
+space during the replacement, and instead opts for shifting
+parts of the buffer around. This function is also intended
+to work with stack arrays. Because of that, this function
+will not, and cannot expand the buffer to make room for
+large replacements. Instead, <b>strrepl will .I not</b>
+perform the replacement if the <b>final size</b> is beyond
+the capacity of the buffer.</p>
+
+<p style="margin-left:11%; margin-top: 1em">When
+<i>string</i>, <i>find</i>, or <i>replace</i> are
+<b>NULL,</b> an error will printed to the stderr, and the
+program will exit. An error will also occur if the
+<i>string</i> argument has a longer length than the size of
+the buffer, determined by <i>size</i>.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><i>string</i>
+will be the string buffer to replace in <i><br>
+find</i> will be the string to replace <i><br>
+replace</i> will be what <b>find</b> is substituted with
+<i><br>
+size</i> will be the maximum length of the buffer</p>
+
+<h2>RETURN VALUE
+<a name="RETURN VALUE"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This function
+returns the number of times <i>find</i> was replaced. If the
+replacement could not be performed, which would be because
+of the buffer&rsquo;s size being too small, then -1 will be
+returned.</p>
+
+<h2>EXAMPLES
+<a name="EXAMPLES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">/* <br>
+* This example showcases how to use the <b>strrepl</b>
+function. <br>
+*/</p>
+
+<p style="margin-left:11%; margin-top: 1em">#include
+&lt;stdio.h&gt; <br>
+#include &lt;string.h&gt; <br>
+#include &lt;stdlib.h&gt; <br>
+#include &lt;cware/libstr/libstr.h&gt;</p>
+
+<p style="margin-left:11%; margin-top: 1em">int main(void)
+{ <br>
+char string[256 + 1] = {0};</p>
+
+<p style="margin-left:11%; margin-top: 1em">strcat(string,
+&quot;foo bar baz&quot;); <br>
+strrepl(string, &quot; &quot;, &quot;__&quot;, 256);</p>
+
+
+<p style="margin-left:11%; margin-top: 1em">printf(&quot;%s\n&quot;,
+string);</p>
+
+<p style="margin-left:11%; margin-top: 1em">return
+EXIT_SUCCESS; <br>
+}</p>
+
+<h2>CONFORMING TO
+<a name="CONFORMING TO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This function
+conforms to C89.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>cware</b>(cware),
+<b>libstr</b>(cware)</p>
+<hr>
+</body>
+</html>

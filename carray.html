@@ -1,0 +1,200 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Tue Jun 21 15:09:43 2022 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>CARRAY</title>
+
+</head>
+<body>
+
+<h1 align="center">CARRAY</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#CONFORMING TO">CONFORMING TO</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">carray - a
+dynamic array implementation</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>#include
+&lt;stdio.h&gt; <br>
+#include &lt;stdlib.h&gt; <br>
+#include &lt;string.h&gt; <br>
+#include &lt;cware/carray/carray.h&gt;</b></p>
+
+<p style="margin-left:11%; margin-top: 1em">struct
+<i>ArrayName</i> {</p>
+
+<p style="margin-left:17%;"><i>type</i> *contents; /* The
+contents of the array */ <br>
+int length; /* How much of the array is used */ <br>
+int capacity; /* How much memory is allocated */</p>
+
+<p style="margin-left:11%;">};</p>
+
+<p style="margin-left:11%; margin-top: 1em">/* Global array
+configuration (can be configured before inclusion) */</p>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">/* Individual
+array configuration */</p>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">/* Array
+operations */ <b><br>
+#define carray_init(</b><i>array</i><b>,</b>
+<i>namespace</i><b>); <br>
+#define carray_init_stack(</b><i>array</i><b>,</b>
+<i>buffer</i><b>,</b> <i>_capacity</i><b>,</b>
+<i>namespace</i><b>); <br>
+#define carray_insert(</b><i>array</i><b>,</b>
+<i>index</i><b>,</b> <i>value</i><b>,</b>
+<i>namespace</i><b>); <br>
+#define carray_pop(</b><i>array</i><b>,</b>
+<i>index</i><b>,</b> <i>location</i><b>); <br>
+#define carray_remove(</b><i>array</i><b>,</b>
+<i>value</i><b>,</b> <i>namespace</i><b>); <br>
+#define carray_find(</b><i>array</i><b>,</b>
+<i>value</i><b>,</b> <i>location</i><b>,</b>
+<i>namespace</i><b>); <br>
+#define carray_free(</b><i>array</i><b>); <br>
+#define carray_append(</b><i>array</i><b>,</b>
+<i>value</i><b>,</b> <i>namespace</i><b>); <br>
+#define carray_length(</b><i>array</i><b>); <br>
+#define carray_is_empty(</b><i>array</i><b>);</b></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">An ANSI C
+compliant dynamic array implementation using macros. The
+array comes with a stack and heap mode. The array is also
+type safe, and is highly portable.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The carray
+library comes with most general operations that can be found
+in existing languages. These do not include utility
+operations like reversal, or counting. However, they may
+exist in the future.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Most operations
+in carray require access to external information, like the
+type of the array, the free function, and more. This data
+should be defined in the form of macros, and all the ones
+that carray takes advantage of can be found in the
+<b>SYNOPSIS</b> section.</p>
+
+<p style="margin-left:11%; margin-top: 1em">In order to
+reduce the number of arguments that need to be passed to
+each of the operations, carray utilises a namespace system.
+In the case of the ones in synopsis, <b>ARRAY_NAME</b> would
+be passed as the <i>namespace</i> argument to each
+macro.</p>
+
+<p style="margin-left:11%; margin-top: 1em">All operations
+except for <b>carray_length</b>(cware) and
+<b>carray_is_empty</b>(cware) will raise an error if either
+the contents of the array is <b>NULL</b>, or the array
+itself is <b>NULL</b>. This is not stated in the manual
+pages of the operations because it applies to most of them,
+and is essentially just boilerplate.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The macros can
+be prefixed with any name, but must end with the
+<b>_TYPE</b>, <b>_HEAP</b>, etc, names. What follows is a
+table of each operation and its manual page.</p>
+
+
+
+<h2>CONFORMING TO
+<a name="CONFORMING TO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This library
+conforms to C89, and is supported on the following
+platforms:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="5%"></td>
+<td width="11%">
+
+
+<p>Linux</p></td>
+<td width="72%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="5%"></td>
+<td width="11%">
+
+
+<p>FreeBSD</p></td>
+<td width="72%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="5%"></td>
+<td width="11%">
+
+
+<p>OpenBSD</p></td>
+<td width="72%">
+</td></tr>
+</table>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>cware</b>(CWARE_MANUAL_SECTION)</p>
+<hr>
+</body>
+</html>

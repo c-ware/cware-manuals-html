@@ -1,0 +1,132 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Tue Jun 21 15:10:03 2022 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>cstring_endswiths</title>
+
+</head>
+<body>
+
+<h1 align="center">cstring_endswiths</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#RETURN VALUE">RETURN VALUE</a><br>
+<a href="#NOTES">NOTES</a><br>
+<a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">cstring_endswiths
+- determine if a cstring ends with a C-style string</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>#include
+&quot;cstring.h&quot;</b></p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>int
+cstring_endswiths(struct CString</b> <i>cstring</i><b>,
+const char *</b><i>check</i><b>);</b></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Determine if a
+CString ends with a C-style string</p>
+
+<p style="margin-left:11%; margin-top: 1em">This function
+will display an error to the stderr, and abort the program
+if any of following conditions are met.</p>
+
+<p style="margin-left:22%;">o cstring.contents is NULL <br>
+o check is NULL <br>
+o cstring.length is negative</p>
+
+<p style="margin-left:11%; margin-top: 1em"><i>cstring</i>
+will be the cstring to check <i><br>
+check</i> will be the c-style to check for</p>
+
+<h2>RETURN VALUE
+<a name="RETURN VALUE"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This function
+will return 1 if cstring ends with check, 0 if it does
+not</p>
+
+<h2>NOTES
+<a name="NOTES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This function
+has no notes.</p>
+
+<h2>EXAMPLES
+<a name="EXAMPLES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">#include
+&lt;stdio.h&gt;</p>
+
+<p style="margin-left:11%; margin-top: 1em">#include
+&quot;cstring.h&quot;</p>
+
+<p style="margin-left:11%; margin-top: 1em">int main(void)
+{ <br>
+struct CString string_a = cstring_init(&quot;foo bar
+baz&quot;);</p>
+
+
+<p style="margin-left:11%; margin-top: 1em">if(cstring_endswiths(string_a,
+&quot;baz&quot;) == 1) <br>
+printf(&quot;%s&quot;, &quot;string_a ends with
+&rsquo;baz&rsquo;0); <br>
+else <br>
+printf(&quot;%s&quot;, &quot;string_a does not end with
+&rsquo;baz&rsquo;0);</p>
+
+
+<p style="margin-left:11%; margin-top: 1em">cstring_free(string_a);</p>
+
+<p style="margin-left:11%; margin-top: 1em">return 0; <br>
+}</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This function
+has no references.</p>
+<hr>
+</body>
+</html>

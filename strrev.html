@@ -1,0 +1,126 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Tue Jun 21 15:10:16 2022 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>strrev</title>
+
+</head>
+<body>
+
+<h1 align="center">strrev</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#RETURN VALUE">RETURN VALUE</a><br>
+<a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#CONFORMING TO">CONFORMING TO</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">strrev -
+reverses a string in-place</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>#include
+&lt;cware/libstr/libstr.h&gt;</b></p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>char
+*strrev(char *</b><i>string</i><b>);</b></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The
+<b>strrev</b> function will reverse a string in-place. This
+means that the function does not allocate any extra space
+during the reversing, and instead opts for shifting parts of
+the buffer around.</p>
+
+<p style="margin-left:11%; margin-top: 1em">When
+<i>string</i> is <b>NULL</b>, an error will be printed to
+the stderr, and the program will exit.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><i>string</i>
+will be the string that will be reversed.</p>
+
+<h2>RETURN VALUE
+<a name="RETURN VALUE"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This function
+will return the string that was reversed.</p>
+
+<h2>EXAMPLES
+<a name="EXAMPLES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">/* <br>
+* This example showcases how to use the <b>strrev</b>
+function. <br>
+*/</p>
+
+<p style="margin-left:11%; margin-top: 1em">#include
+&lt;stdio.h&gt; <br>
+#include &lt;stdlib.h&gt; <br>
+#include &lt;cware/libstr/libstr.h&gt;</p>
+
+<p style="margin-left:11%; margin-top: 1em">int main(void)
+{ <br>
+char string[256 + 1] = &quot;foo bar baz&quot;;</p>
+
+
+<p style="margin-left:11%; margin-top: 1em">strrev(string);
+/* Reverse the string */ <br>
+printf(&quot;%s\n&quot;, string); <br>
+strrev(string); /* Put it back to normal */</p>
+
+<p style="margin-left:11%; margin-top: 1em">return
+EXIT_SUCCESS; <br>
+}</p>
+
+<h2>CONFORMING TO
+<a name="CONFORMING TO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This function
+conforms to C89.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>cware</b>(cware),
+<b>libstr</b>(cware)</p>
+<hr>
+</body>
+</html>

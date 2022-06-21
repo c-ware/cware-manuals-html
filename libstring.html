@@ -1,0 +1,184 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Tue Jun 21 15:10:14 2022 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>libstr</title>
+
+</head>
+<body>
+
+<h1 align="center">libstr</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#CONFORMING TO">CONFORMING TO</a><br>
+<a href="#SUPPORTED PLATFORMS">SUPPORTED PLATFORMS</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">libstr - an
+extension to string.h</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>#include
+&lt;stddef.h&gt; <br>
+#include &lt;cware/libstr/libstr.h&gt;</b></p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>char
+*strrev(char *</b><i>string</i><b>); <br>
+int strstrip(char *</b><i>string</i><b>, const char
+*</b><i>characters</i><b>); <br>
+int strcount(const char *</b><i>string</i><b>, const char
+*</b><i>count</i><b>); <br>
+int strstarts(const char *</b><i>string</i><b>, const char
+*</b><i>start</i><b>); <br>
+int strrepl(char *</b><i>string</i><b>, const char
+*</b><i>find</i><b>, const char *</b><i>replace</i><b>,
+size_t</b> <i>size</i><b>);</b></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The
+<b>libstr</b> library provides an extension to the
+<b>string</b>(3) library. It provides additional functions
+which operate on NUL terminated strings that the base string
+library does not provide. What follows is a table of each
+function that is exposed by the public headers, and where
+documentation can be found for it.</p>
+
+
+
+<h2>CONFORMING TO
+<a name="CONFORMING TO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This library
+conforms to C89.</p>
+
+<h2>SUPPORTED PLATFORMS
+<a name="SUPPORTED PLATFORMS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This library
+has been tested to work on:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="3%"></td>
+<td width="19%">
+
+
+<p>Arch Linux</p></td>
+<td width="66%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="3%"></td>
+<td width="19%">
+
+
+<p>Linux Mint</p></td>
+<td width="66%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="3%"></td>
+<td width="19%">
+
+
+<p>Debian</p></td>
+<td width="66%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="3%"></td>
+<td width="19%">
+
+
+<p>FreeBSD 13.0</p></td>
+<td width="66%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="3%"></td>
+<td width="19%">
+
+
+<p>OpenBSD 7.0</p></td>
+<td width="66%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="1%">
+
+
+<p>&bull;</p></td>
+<td width="3%"></td>
+<td width="19%">
+
+
+<p>Solaris 10</p></td>
+<td width="66%">
+</td></tr>
+</table>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>cware</b>(cware)</p>
+<hr>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Tue Jun 21 15:10:02 2022 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>cstring</title>
+
+</head>
+<body>
+
+<h1 align="center">cstring</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">cstring - ansi
+c compliant dynamically allocated string</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">/* a
+dynamically allocated string */ <br>
+struct CString {</p>
+
+<p style="margin-left:17%;">int length; /* the length of
+the string */ <br>
+int capacity; /* the physical capacity of the string */ <br>
+char *contents; /* the characters in the string */</p>
+
+<p style="margin-left:11%;">}; <br>
+/* an array of cstrings-- integration with carray(cware) */
+<br>
+struct CStrings {</p>
+
+<p style="margin-left:17%;">int length; /* the length of
+the array */ <br>
+int capacity; /* the physical capacity of the array */ <br>
+struct CString *contents; /* the strings in the array */</p>
+
+<p style="margin-left:11%;">};</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>struct
+CString cstring_init(const char *</b><i>base</i><b>); <br>
+void cstring_free(struct CString</b> <i>cstring</i><b>);
+<br>
+struct CString cstring_loadf(FILE *</b><i>file</i><b>); <br>
+void cstring_reset(struct CString</b> <i>cstring</i><b>);
+<br>
+int cstring_finds(struct CString</b> <i>haystack</i><b>,
+const char *</b><i>needle</i><b>); <br>
+int cstring_find(struct CString</b> <i>haystack</i><b>,
+struct CString</b> <i>needle</i><b>); <br>
+int cstring_strip(struct CString *</b><i>cstring</i><b>,
+struct CString</b> <i>target</i><b>); <br>
+int cstring_strips(struct CString *</b><i>cstring</i><b>,
+struct CString</b> <i>target</i><b>); <br>
+int cstring_endswiths(struct CString</b> <i>cstring</i><b>,
+const char *</b><i>check</i><b>); <br>
+int cstring_endswith(struct CString</b> <i>cstring</i><b>,
+struct CString</b> <i>check</i><b>); <br>
+void cstring_concats(struct CString *</b><i>cstring</i><b>,
+const char *</b><i>string</i><b>); <br>
+int cstring_startswiths(struct CString</b>
+<i>cstring</i><b>, const char *</b><i>check</i><b>); <br>
+int cstring_startswith(struct CString</b> <i>cstring</i><b>,
+struct CString</b> <i>check</i><b>); <br>
+void cstring_concat(struct CString *</b><i>cstring_a</i><b>,
+struct CString</b> <i>cstring_b</i><b>); <br>
+struct CString cstring_slice(struct CString</b>
+<i>cstring</i><b>, int</b> <i>start</i><b>, int</b>
+<i>stop</i><b>);</b></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">An ANSI C
+compliant dynamically allocated string implementation with a
+focus on efficient use of memory. One of the main design
+choices of cstring is to put emphesis on the reuse of
+existing string objects to reduce overall memory usage.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Another
+important design choice of cstring is to provide some degree
+of interopability between a cstring, and a C-style string.
+To achieve this, cstrings are NUL terminated, while also
+having a length field for any situations where the
+programmer may want length-prefixed strings, such as
+constant time length operations, and the need for the NUL
+byte in the body of the string. What follows is a list of
+each operation&rsquo;s manual, and a brief description of
+it.</p>
+
+
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>cware</b>(cware)</p>
+<hr>
+</body>
+</html>

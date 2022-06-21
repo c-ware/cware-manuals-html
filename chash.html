@@ -1,0 +1,154 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Tue Jun 21 15:09:52 2022 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>CHASH</title>
+
+</head>
+<body>
+
+<h1 align="center">CHASH</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#CONFORMING TO">CONFORMING TO</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">chash - a
+macro-based hashtable implementation</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>#include
+&lt;stdio.h&gt; <br>
+#include &lt;stdlib.h&gt; <br>
+#include &lt;string.h&gt; <br>
+#include &lt;cware/chash/chash.h&gt;</b></p>
+
+<p style="margin-left:11%; margin-top: 1em">struct
+<i>BucketName</i> {</p>
+
+<p style="margin-left:22%;"><i>key_type</i> key; /* The key
+to store in the bucket */ <i><br>
+value_type</i> value; /* The value to store in the bucket */
+<br>
+int state; /* The state of the bucket; dead, alive, filled
+*/</p>
+
+<p style="margin-left:11%;">};</p>
+
+<p style="margin-left:11%; margin-top: 1em">struct
+<i>HashtableName</i> {</p>
+
+<p style="margin-left:22%;">int length; /* How much of the
+hashtable has been filled */ <br>
+int capacity; /* How much the hashtable can hold */ <br>
+struct <i>BucketName</i> buckets; /* The buckets to store in
+the hashtable */</p>
+
+<p style="margin-left:11%;">};</p>
+
+<p style="margin-left:11%; margin-top: 1em">/* Individual
+hashtable configuration */</p>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">/* Global
+hashtable configuration (can be configured before inclusion)
+*/</p>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">/* Hashtable
+operations */</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>#define
+chash_init(</b><i>hashtable</i><b>,</b>
+<i>namespace</i><b>); <br>
+#define chash_init_stack(</b><i>hashtable</i><b>,</b>
+<i>buffer</i><b>,</b> <i>length</i><b>,</b>
+<i>namespace</i><b>); <br>
+#define chash_assign(</b><i>hashtable</i><b>,</b>
+<i>key</i><b>,</b> <i>value</i><b>,</b>
+<i>namespace</i><b>); <br>
+#define chash_lookup(</b><i>hashtable</i><b>,</b>
+<i>key</i><b>,</b> <i>storage</i><b>,</b>
+<i>namespace</i><b>); <br>
+#define chash_lookup_bucket(</b><i>hashtable</i><b>,</b>
+<i>key</i><b>,</b> <i>storage</i><b>,</b>
+<i>namespace</i><b>); <br>
+#define chash_delete(</b><i>hashtable</i><b>,</b>
+<i>key</i><b>,</b> <i>namespace</i><b>); <br>
+#define chash_contains(</b><i>hashtable</i><b>,</b>
+<i>key</i><b>,</b> <i>storage</i><b>,</b>
+<i>namespace</i><b>); <br>
+#define chash_free(</b><i>hashtable</i><b>,</b>
+<i>namespace</i><b>); <br>
+#define chash_iter(</b><i>hashtable</i><b>,</b>
+<i>index</i><b>,</b> <i>_key</i><b>,</b> <i>_value</i><b>);
+<br>
+#define chash_is_full(</b><i>hashtable</i><b>,</b>
+<i>namespace</i><b>);</b></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">An ANSI C
+compliant hashtable implementation using macros. Allows for
+type safety, and tries to be as memory efficient as
+possible. The hashtable implementation allows for the
+hashtable to be used as a stack or heap hashtable which can
+allow for quick lookups of values without having to use the
+heap.</p>
+
+<p style="margin-left:11%; margin-top: 1em">This library is
+heavily documented, and information on each operation that
+is exposed to the programmer can be found in the table
+below.</p>
+
+
+
+<h2>CONFORMING TO
+<a name="CONFORMING TO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This library
+conforms to C89.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>cware</b>(cware),
+<b>chash</b>(cware)</p>
+<hr>
+</body>
+</html>

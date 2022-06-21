@@ -1,0 +1,128 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Tue Jun 21 15:10:05 2022 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>cstring_reset</title>
+
+</head>
+<body>
+
+<h1 align="center">cstring_reset</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#RETURN VALUE">RETURN VALUE</a><br>
+<a href="#NOTES">NOTES</a><br>
+<a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">cstring_reset -
+reset a string to be reused</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>#include
+&quot;cstring.h&quot;</b></p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>void
+cstring_reset(struct CString</b> <i>cstring</i><b>);</b></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Reset the
+length of the string and NUL terminate the beginning of it
+to &rsquo;reset&rsquo; the string. Note that this does not
+actually erase or reset the physical contents of the
+buffers-- only makes the accessible parts of the buffer seem
+to be reset.</p>
+
+<p style="margin-left:11%; margin-top: 1em">This function
+will display an error to the stderr, and abort the program
+if any of following conditions are met.</p>
+
+<p style="margin-left:22%;">o cstring is NULL <br>
+o cstring-&gt;contents NULL <br>
+o cstring-&gt;length is negative</p>
+
+<p style="margin-left:11%; margin-top: 1em"><i>cstring</i>
+will be the cstring to reset</p>
+
+<h2>RETURN VALUE
+<a name="RETURN VALUE"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This function
+has no return value.</p>
+
+<h2>NOTES
+<a name="NOTES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This function
+has no notes.</p>
+
+<h2>EXAMPLES
+<a name="EXAMPLES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">#include
+&quot;cstring.h&quot;</p>
+
+<p style="margin-left:11%; margin-top: 1em">int main(void)
+{ <br>
+struct CString string_a = cstring_init(&quot;foo&quot;);
+<br>
+struct CString string_b = cstring_init(&quot;bar&quot;);</p>
+
+<p style="margin-left:11%; margin-top: 1em">// Concatenate,
+then reset string_a <br>
+cstring_concat(string_a, string_b); <br>
+cstring_reset(&amp;string_a);</p>
+
+
+<p style="margin-left:11%; margin-top: 1em">cstring_free(string_a);
+<br>
+cstring_free(string_b);</p>
+
+<p style="margin-left:11%; margin-top: 1em">return 0; <br>
+}</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This function
+has no references.</p>
+<hr>
+</body>
+</html>

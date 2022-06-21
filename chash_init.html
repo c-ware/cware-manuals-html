@@ -1,0 +1,146 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Tue Jun 21 15:09:56 2022 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>CHASH_INIT</title>
+
+</head>
+<body>
+
+<h1 align="center">CHASH_INIT</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#CONFORMING TO">CONFORMING TO</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">chash_init -
+initialise a new hashtable on the heap</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>#include
+&lt;stdio.h&gt; <br>
+#include &lt;stdlib.h&gt; <br>
+#include &lt;string.h&gt; <br>
+#include &lt;cware/chash/chash.h&gt;</b></p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>#define
+chash_init(</b><i>hashtable</i><b>,</b>
+<i>namespace</i><b>);</b></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The
+<b>chash_init</b> macro will initialise a new hashtable on
+the heap, and write it into the variable <i>hashtable</i>.
+The hashtable produced by this macro has to be released when
+the programmer decides it is most fitting to delete it,
+which can be done with <b>chash_free</b>(cware).</p>
+
+<p style="margin-left:11%; margin-top: 1em">This macro has
+no error conditions.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><i>hashtable</i>
+will be the variable to initialise the hashtable into
+<i><br>
+namespace</i> will be the namespace of the hashtable
+settings to use</p>
+
+<h2>EXAMPLES
+<a name="EXAMPLES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">/* <br>
+* This example showcases how to use the <b>chash_init</b>
+macro. <br>
+*/</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>#include
+&lt;stdio.h&gt; <br>
+#include &lt;stdlib.h&gt; <br>
+#include &lt;string.h&gt; <br>
+#include &lt;cware/chash/chash.h&gt;</b></p>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">struct
+StringBucket { <br>
+char *key; <br>
+int value; <br>
+int state; <br>
+};</p>
+
+<p style="margin-left:11%; margin-top: 1em">struct
+StringHashtable { <br>
+int length; <br>
+int capacity; <br>
+struct StringBucket *buckets; <br>
+};</p>
+
+<p style="margin-left:11%; margin-top: 1em">int main(void)
+{ <br>
+struct StringHashtable *hashtable = chash_init(hashtable,
+STRING_TABLE);</p>
+
+<p style="margin-left:11%; margin-top: 1em">/* Perform
+operations on the hashtable */ <br>
+chash_assign(hashtable, &quot;foo&quot;, 1); <br>
+chash_assign(hashtable, &quot;bar&quot;, 2);</p>
+
+<p style="margin-left:11%; margin-top: 1em">/* Free the
+hashtable */ <br>
+chash_free(hashtable, STRING_TABLE);</p>
+
+<p style="margin-left:11%; margin-top: 1em">return
+EXIT_SUCCESS; <br>
+}</p>
+
+<h2>CONFORMING TO
+<a name="CONFORMING TO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This macro
+conforms to C89.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>cware</b>(cware),
+<b>chash</b>(cware)</p>
+<hr>
+</body>
+</html>

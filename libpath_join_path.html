@@ -1,0 +1,124 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Tue Jun 21 15:10:13 2022 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>libpath_join_path</title>
+
+</head>
+<body>
+
+<h1 align="center">libpath_join_path</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#RETURN VALUE">RETURN VALUE</a><br>
+<a href="#NOTES">NOTES</a><br>
+<a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">libpath_join_path
+- join a variable number of path segments into a single
+buffer</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>#include
+&quot;libpath.h&quot;</b></p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>int
+libpath_join_path(char *</b><i>buffer</i><b>, int</b>
+<i>length</i><b>);</b></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Join a variable
+number of path components into a single string. All path
+components will automatically have path segments put between
+them which match the corresponding path for the system it is
+running on. The final path parameter MUST be NULL, and the
+final string should be large enough to have a NUL byte
+written to it.</p>
+
+<p style="margin-left:11%; margin-top: 1em">This function
+will display an error to the stderr, and abort the program
+if any of following conditions are met.</p>
+
+<p style="margin-left:22%;">o buffer is NULL <br>
+o length is negative</p>
+
+<p style="margin-left:11%; margin-top: 1em"><i>buffer</i>
+will be the buffer to write to <i><br>
+length</i> will be the length of the buffer</p>
+
+<h2>RETURN VALUE
+<a name="RETURN VALUE"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This function
+will return the number of bytes written</p>
+
+<h2>NOTES
+<a name="NOTES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This function
+has no notes.</p>
+
+<h2>EXAMPLES
+<a name="EXAMPLES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">#include
+&quot;libpath.h&quot;</p>
+
+<p style="margin-left:11%; margin-top: 1em">int main(void)
+{ <br>
+char buffer[1024 + 1];</p>
+
+
+<p style="margin-left:11%; margin-top: 1em">libpath_join_path(buffer,
+1024, LIBPATH_HOME_DIR, &quot;config&quot;, NULL);</p>
+
+<p style="margin-left:11%; margin-top: 1em">return 0; <br>
+}</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This function
+has no references.</p>
+<hr>
+</body>
+</html>

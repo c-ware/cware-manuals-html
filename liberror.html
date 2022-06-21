@@ -1,0 +1,105 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Tue Jun 21 15:10:08 2022 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>LIBERROR</title>
+
+</head>
+<body>
+
+<h1 align="center">LIBERROR</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">liberror - a
+collection of macro error handlers</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>#include
+&quot;liberror.h&quot;</b></p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>#define
+liberror_is_null(</b><i>function_name</i><b>,</b>
+<i>argument</i><b>) #define
+liberror_is_negative(</b><i>function_name</i><b>,</b>
+<i>argument</i><b>) #define
+liberror_is_positive(</b><i>function_name</i><b>,</b>
+<i>argument</i><b>) #define
+liberror_in_range(</b><i>function_name</i><b>,</b>
+<i>argument</i><b>,</b> <i>start</i><b>,</b> <i>end</i><b>)
+#define
+liberror_buffer_is_full(</b><i>function_name</i><b>,</b>
+<i>argument</i><b>,</b> <i>needed_size</i><b>,</b>
+<i>length</i><b>) #define
+liberror_is_number(</b><i>function_name</i><b>,</b>
+<i>argument</i><b>,</b> <i>format</i><b>,</b>
+<i>value</i><b>) #define
+liberror_failure(</b><i>function_name</i><b>,</b>
+<i>function</i><b>) #define
+liberror_unhandled(</b><i>function_name</i><b>)</b></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">A big problem
+people often have with C is its lack of safety. This is
+understandable. C is definitely not a very safe language. To
+achieve behavior like this, programmers must resort to doing
+things like error checking at runtime, as opposed to using
+C&rsquo;s type system, since it is quite primitive.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The purpose of
+this library is to make error checking at runtime a lot
+simpler by introducing macros which reduce the boilerplate
+required to do this kind of logic, since it can get quite
+repetitive. This library allows for enforcing runtime
+constraints on the range a number can be, a generic
+<b>error</b>(3) error conditions, a &rsquo;should not get
+here&rsquo; macro, and more.</p>
+
+<p style="margin-left:11%; margin-top: 1em">When the
+condition of one of the macros is met, the macro will
+display an error to the stderr, and <b>abort</b>(3) the
+program. What follows is a list of each macro, and a brief
+description of it.</p>
+
+
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>cware</b>(cware)</p>
+<hr>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Tue Jun 21 15:09:48 2022 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>CARRAY_IS_EMPTY</title>
+
+</head>
+<body>
+
+<h1 align="center">CARRAY_IS_EMPTY</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">carray_is_empty
+- determine if an array is empty</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>#include
+&lt;stdio.h&gt; <br>
+#include &lt;stdlib.h&gt; <br>
+#include &lt;string.h&gt; <br>
+#include &lt;cware/carray/carray.h&gt;</b></p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>#define
+carray_is_empty(</b><i>array</i><b>);</b></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The
+<b>carray_is_empty</b> macro will determine if an array is
+empty. If the array is empty, this will return 1. If it is
+not empty, this will return 0.</p>
+
+<p style="margin-left:11%; margin-top: 1em">This macro has
+no error conditions.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><i>array</i>
+will be the array to check for emptiness</p>
+
+<h2>EXAMPLES
+<a name="EXAMPLES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">/* <br>
+* This example showcases how to use the
+<b>carray_is_empty</b> macro. <br>
+*/</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>#include
+&lt;stdio.h&gt; <br>
+#include &lt;stdlib.h&gt; <br>
+#include &lt;string.h&gt; <br>
+#include &lt;cware/carray/carray.h&gt;</b></p>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">struct
+StringArray { <br>
+int length; <br>
+int capacity; <br>
+char **contents; <br>
+};</p>
+
+<p style="margin-left:11%; margin-top: 1em">int main(void)
+{ <br>
+struct StringArray *array = carray_init(array,
+STRING_ARRAY);</p>
+
+<p style="margin-left:11%; margin-top: 1em">/* Append some
+data to the array */ <br>
+carray_append(array, &quot;foo&quot;, STRING_ARRAY); <br>
+carray_append(array, &quot;bar&quot;, STRING_ARRAY); <br>
+carray_append(array, &quot;baz&quot;, STRING_ARRAY);</p>
+
+<p style="margin-left:11%; margin-top: 1em">/* Check if the
+array is empty */ <br>
+if(carray_is_empty(array) == 1) { <br>
+printf(&quot;%s&quot;, &quot;The array is empty.\n&quot;);
+<br>
+} else { <br>
+printf(&quot;%s&quot;, &quot;The array is not
+empty.\n&quot;); <br>
+}</p>
+
+<p style="margin-left:11%; margin-top: 1em">/* Release the
+allocated array */ <br>
+carray_is_empty(array, STRING_ARRAY);</p>
+
+<p style="margin-left:11%; margin-top: 1em">return
+EXIT_SUCCESS; <br>
+}</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>cware</b>(cware),
+<b>carray</b>(cware)</p>
+<hr>
+</body>
+</html>
